@@ -1,0 +1,29 @@
+<script>
+function processObjectsDelayed(items, delay) {
+    for(let i=0; i<items.length; i++){
+        setTimeout(() => {
+            items[i].process();
+        }, delay*(i+1));
+    }
+}
+
+// Example input array
+const items = [
+  { 
+    name: "Alpha", 
+    process: function() { 
+      console.log(`Processing: ${this.name}`); 
+    } 
+  },
+  { 
+    name: "Beta", 
+    process: function() { 
+      console.log(`Task for ${this.name} done.`); 
+    } 
+  }
+];
+
+// Usage
+processObjectsDelayed(items, 1000); // Each object's process will run after 1 second
+
+</script>

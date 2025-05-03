@@ -1,0 +1,16 @@
+<script>
+    function filterObjectProperties(object, minLength){
+        const result = {};
+        for(const i in object){
+            if(typeof object[i]=='string' && object[i].length>=minLength){
+                result[i]=object[i];
+            }
+        }
+        return result;
+    }
+
+    const data = { a: "short", b: "longer string", c: 123, d: "very long string indeed" };
+    const filtered = filterObjectProperties(data, 6);
+    console.log(filtered);
+
+</script>

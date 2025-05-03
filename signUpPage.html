@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f7ff;
+    }
+
+    .signup-container {
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    .signup-container h2 {
+      text-align: center;
+    }
+
+    .signup-container input[type="text"],
+    .signup-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    .signup-container input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="newUsername" placeholder="Choose a Username" required>
+      <input type="password" id="newPassword" placeholder="Choose a Password" required>
+      <input type="submit" value="Register">
+    </form>
+    <div class="message" id="signupMessage"></div>
+  </div>
+
+  <script>
+    // Sign up form handler
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("newUsername").value;
+      const password = document.getElementById("newPassword").value;
+      const message = document.getElementById("signupMessage");
+
+      // Fetch existing users from localStorage
+      let users = JSON.parse(localStorage.getItem("users")) || {};
+
+      // Check if user already exists
+      if (users[username]) {
+        message.style.color = "red";
+        message.textContent = "Username already exists. Try another.";
+        return;
+      }
+
+      // Save new user
+      users[username] = password;
+      localStorage.setItem("users", JSON.stringify(users));
+
+      message.style.color = "green";
+      message.textContent = "Registration successful!";
+      document.getElementById("signupForm").reset();
+    });
+  </script>
+</body>
+</html>
