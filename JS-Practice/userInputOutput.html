@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input & Output</title>
+</head>
+<body>
+
+    <input type="text" id="name-input" placeholder="Enter your name..." />
+    <input type="text" id="color-input" placeholder="Enter your favorite color..." />
+    <input type="text" id="age-input" placeholder="Enter your age..." />
+    <input type="text" id="hobby-input" placeholder="Enter your hobby..." />
+
+    <button onclick="showMessage()">Click Here</button>
+
+    <h2 class="text" id="message"></h2>
+
+    <script>
+        function showMessage() {
+            let name = document.getElementById("name-input").value.trim();
+            let color = document.getElementById("color-input").value.trim();
+            let age = document.getElementById("age-input").value.trim();
+            let hobby = document.getElementById("hobby-input").value.trim();
+
+            let message = "";
+
+            if (name === "") message += "Please enter the name.\n";
+            if (color === "") message += "Please enter the color.\n";
+            if (age === "") message += "Please enter the age.\n";
+            if (hobby === "") message += "Please enter the hobby.\n";
+
+            if (message !== "") {
+                document.getElementById("message").innerText = message;
+                document.getElementById("message").style.color = "red";
+                return; // stop here if any field is missing
+            }
+
+            document.getElementById("message").innerText =
+                `${name} is ${age} years old and likes ${hobby}.`;
+            document.getElementById("message").style.color = color;
+
+            document.getElementById("name-input").value = "";
+            document.getElementById("color-input").value = "";
+            document.getElementById("age-input").value = "";
+            document.getElementById("hobby-input").value = "";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Input Update</title>
+</head>
+<body>
+
+    <input type="text" id="text" placeholder="Enter your name..." />
+    <h1 id="message"></h1>
+
+    <script>
+        function updateMessage() {
+            let inputValue = document.getElementById("text").value;
+            document.getElementById("message").innerText = inputValue;
+        }
+
+        document.getElementById("text").addEventListener("input", updateMessage);
+    </script>
+
+</body>
+</html>
