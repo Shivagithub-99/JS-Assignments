@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Validation</title>
+</head>
+<body>
+
+    <input type="text" id="text" placeholder="Enter your name here" />
+    <p id="message"></p>
+
+    <script>
+
+        const textInput = document.getElementById("text");
+        const message = document.getElementById("message");
+
+        function showMessage() {
+            const msg = textInput.value.trim();
+            const namePattern = /^[A-Za-z\s]+$/;
+
+            if (msg.length < 3) {
+                message.innerText = "Name must be at least 3 characters";
+                message.style.color = "red";
+            } else if (!namePattern.test(msg)) {
+                message.innerText = "Name can only contain letters and spaces";
+                message.style.color = "red";
+            } else {
+                message.innerText = "✅ Name looks good!";
+                message.style.color = "green";
+            }
+        }
+
+        textInput.addEventListener("input", showMessage);
+    </script>
+</body>
+</html>

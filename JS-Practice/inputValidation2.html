@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Checker</title>
+</head>
+<body>
+    <input type="text" id="text" placeholder="Enter any number" />
+    <button onclick="showMessage()" id="my-button">Check</button>
+    <p id="message"></p>
+
+    <script>
+        function showMessage() {
+            let input = document.getElementById("text").value;
+            let number = parseFloat(input);
+
+            if (isNaN(number)) {
+                message.innerText = "❌ Please enter a valid number";
+                message.style.color = "red";
+            } else if (number === 0) {
+                message.innerText = "Zero";
+                message.style.color = "blue";
+            } else if (number < 0) {
+                message.innerText = "Negative";
+                message.style.color = "orange";
+            } else {
+                message.innerText = "Positive";
+                message.style.color = "green";
+            }
+        }
+    </script>
+</body>
+</html>

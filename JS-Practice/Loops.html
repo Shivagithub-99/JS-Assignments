@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>
+    <input type="text" id="text" placeholder="Enter a number">
+    <p id="message"></p>
+    <button onclick="showMessage()" id="my-button">Calculate Sum</button>
+
+    <script>
+        function showMessage() {
+            let input = document.getElementById("text").value;
+            let n = parseInt(input);
+            let sum = 0;
+            let message = document.getElementById("message");
+
+            if (isNaN(n) || n < 0) {
+                message.innerText = "❌ Please enter a valid positive number";
+                message.style.color = "red";
+                return;
+            }
+
+            for (let i = 0; i <= n; i++) {
+                sum += i;
+            }
+
+            message.innerText = "Sum: " + sum;
+            message.style.color = "green";
+        }
+    </script>
+</body>
+</html>
