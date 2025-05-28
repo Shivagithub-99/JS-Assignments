@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <input type="text" id="text" placeholder="Enter the number" />
+    <button onclick="showMessage()" id="my-button">Calculate</button>
+    <p id="message"></p>
+
+    <script>
+        let message = document.getElementById("message");
+
+        function calculateSquare(num) {
+            return num * num;
+        }
+
+        function showMessage() {
+            let n = parseFloat(document.getElementById("text").value);
+
+            if (isNaN(n)) {
+                message.innerText = "❌ Please enter a valid number";
+                message.style.color = "red";
+            } else {
+                let result = calculateSquare(n);
+                message.innerText = "Square: " + result;
+                message.style.color = "green";
+            }
+        }
+    </script>
+</body>
+</html>
