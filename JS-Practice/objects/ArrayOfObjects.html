@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Of Objects</title>
+</head>
+<body>
+
+    <button onclick="showInfo()" id="my-button">
+        Show Info
+    </button>
+
+    <p id="message"></p>
+
+    <script>
+
+        let people = [
+            { name: "Shiva", age: 25 },
+            { name: "Ravi", age: 30 },
+            { name: "Sneha", age: 22 }
+        ];
+
+        function showInfo(){
+            let result = "";
+            for(let i=0; i<people.length; i++){
+                result += "name: " + people[i].name + ", " + "age: " + people[i].age + "<br>";
+            }
+            message.innerHTML = result;
+            message.style.color = "red";
+        }
+    </script>
+
+</body>
+</html>

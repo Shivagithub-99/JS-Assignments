@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fruit Basket</title>
+</head>
+<body>
+
+    <h3>Fruit Basket 🍎🍌🍊</h3>
+
+    <input type="text" id="fruitInput" placeholder="Enter a fruit name">
+    <button onclick="addFruit()">Add Fruit</button>
+    <button onclick="removeFruit()">Remove Last Fruit</button>
+    <button onclick="checkFruit()">Check Fruit</button>
+    <button onclick="showFruits()">Show Fruits</button>
+
+    <p id="output"></p>
+
+    <script>
+        let fruits = ["Apple", "Banana", "Mango"];
+        let output = document.getElementById("output");
+
+        function addFruit() {
+            let fruit = document.getElementById("fruitInput").value;
+            if (fruit) {
+                fruits.push(fruit);
+                output.innerText = fruit + " added!";
+            }
+        }
+
+        function removeFruit() {
+            let removed = fruits.pop();
+            if(fruits.length === 0){
+                output.innerText = "No Fruits in the Basket!";
+            }
+            else{
+                output.innerText = removed + " removed!";
+            }
+        }
+
+        function checkFruit() {
+            let fruit = document.getElementById("fruitInput").value;
+            if (fruits.includes(fruit)) {
+                output.innerText = fruit + " is in the basket!";
+            } else {
+                output.innerText = fruit + " is not found.";
+            }
+        }
+
+        function showFruits() {
+            output.innerHTML = "Fruits: <br>" + fruits.join("<br>");
+        }
+    </script>
+
+</body>
+</html>

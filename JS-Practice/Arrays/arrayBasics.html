@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Exercise</title>
+</head>
+<body>
+
+    <button onclick="showFruits()">Show Fruits</button>
+    <p id="output"></p>
+
+    <script>
+        let fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+        let output = document.getElementById("output");
+
+    
+        function showFruits() {
+            let result = "";
+            for(let i=0; i<fruits.length; i++){
+                result += fruits[i] + "<br>";
+            }
+            output.innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>

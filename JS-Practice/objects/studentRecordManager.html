@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Records</title>
+</head>
+<body>
+  <h2>Student Records</h2>
+
+  <input type="text" id="nameInput" placeholder="Enter name" />
+  <input type="number" id="ageInput" placeholder="Enter age" />
+  <button onclick="addStudent()">Add Student</button>
+
+  <h3>Student List:</h3>
+  <ul id="studentList"></ul>
+
+  <script>
+    let students = [];
+
+    function addStudent() {
+      let name = document.getElementById("nameInput").value;
+      let age = parseInt(document.getElementById("ageInput").value);
+
+      if (name === "" || isNaN(age)) {
+        alert("Please enter valid name and age.");
+        return;
+      }
+
+      let student = {
+        name: name,
+        age: age
+      };
+
+      students.push(student);
+      displayStudents();
+    }
+
+    function displayStudents() {
+      let list = document.getElementById("studentList");
+      list.innerHTML = "";
+
+      for (let i = 0; i < students.length; i++) {
+        let item = document.createElement("li");
+        item.innerText = `Name: ${students[i].name}, Age: ${students[i].age}`;
+        list.appendChild(item);
+      }
+    }
+  </script>
+</body>
+</html>

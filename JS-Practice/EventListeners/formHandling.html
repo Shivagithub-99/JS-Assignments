@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Validation</title>
+</head>
+<body>
+  <h2>User Form</h2>
+
+  <form id="userForm">
+    <input type="text" id="name" placeholder="Enter your name" /><br><br>
+    <input type="email" id="email" placeholder="Enter your email" /><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    let form = document.getElementById("userForm");
+    let message = document.getElementById("message");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();  // Stop form from refreshing the page
+
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+
+      if (name === "" || email === "") {
+        message.innerText = "❌ Please fill in both fields.";
+        message.style.color = "red";
+      } else {
+        message.innerText = "✅ Thank you, " + name + "! We'll contact you at " + email;
+        message.style.color = "green";
+      }
+    });
+  </script>
+</body>
+</html>

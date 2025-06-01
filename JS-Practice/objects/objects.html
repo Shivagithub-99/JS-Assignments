@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Exercise</title>
+</head>
+<body>
+
+    <button onclick="showPersonInfo()">Show Person Info</button>
+    <p id="output"></p>
+
+    <script>
+        // Create the object
+        let person = {
+            name: "Shiva Goud",
+            age: 25,
+            city: "Hyderabad",
+            profession: "Developer",
+            greet: function(){
+                return "You are ready to develop projects " + this.name;
+            }
+        };
+
+        person.hobby = "Singing";
+        delete person.hobby;
+
+
+        let output = document.getElementById("output");
+
+        function showPersonInfo() {
+            let result = "Name: " + person.name + "<br>" +
+                         "Age: " + person.age + "<br>" +
+                         "City: " + person.city + "<br>" +
+                         "Profession: " + person.profession + "<br>" +
+                         person.greet();
+
+            output.innerHTML = result;
+            output.style.color = "green";
+        }
+    </script>
+
+</body>
+</html>
